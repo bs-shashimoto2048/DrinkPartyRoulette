@@ -41,7 +41,7 @@ struct ContentView: View {
                                 .ignoresSafeArea()
 
                             // 中央にLottieアニメーション表示
-                            LottieView(animationName: "firework") // JSONファイル名(拡張子なし)
+                            LottieView(animationName: "anime_heart") // JSONファイル名(拡張子なし)
                                 .frame(
                                     width: geometry.size.width * 0.5,
                                     height: geometry.size.height * 0.5
@@ -114,8 +114,8 @@ struct ContentView: View {
                             // 前回のくじ引きの赤をリセットして新しい人を保存
                             lastAssignedMemberID = member.id
 
-                            // アニメ終了（3.5秒後）
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                            // アニメ終了: (deadline: .now() + *.*) -> *.* で秒数指定
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                                 showLottie = false
                             }
                         }

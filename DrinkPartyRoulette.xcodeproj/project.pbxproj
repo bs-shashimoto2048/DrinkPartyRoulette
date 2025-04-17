@@ -11,6 +11,7 @@
 		412842F82DAF6D740081DD0A /* firework.json in Resources */ = {isa = PBXBuildFile; fileRef = 412842F72DAF6D740081DD0A /* firework.json */; };
 		41864D1F2DB0B49C005A8E9A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 41864D1E2DB0B49C005A8E9A /* README.md */; };
 		41864D212DB0B4C3005A8E9A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 41864D202DB0B4C3005A8E9A /* .gitignore */; };
+		41864D232DB0BBB2005A8E9A /* anime_heart.json in Resources */ = {isa = PBXBuildFile; fileRef = 41864D222DB0BBB2005A8E9A /* anime_heart.json */; };
 		4189A20F2DAD1A6400CA27CB /* DrinkPartyRouletteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4189A20E2DAD1A6400CA27CB /* DrinkPartyRouletteApp.swift */; };
 		4189A2112DAD1A6400CA27CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4189A2102DAD1A6400CA27CB /* ContentView.swift */; };
 		4189A2132DAD1A6500CA27CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4189A2122DAD1A6500CA27CB /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		412842F92DAF703E0081DD0A /* firework copy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "firework copy.json"; sourceTree = "<group>"; };
 		41864D1E2DB0B49C005A8E9A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		41864D202DB0B4C3005A8E9A /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		41864D222DB0BBB2005A8E9A /* anime_heart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anime_heart.json; sourceTree = "<group>"; };
 		4189A20B2DAD1A6400CA27CB /* DrinkPartyRoulette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkPartyRoulette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4189A20E2DAD1A6400CA27CB /* DrinkPartyRouletteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkPartyRouletteApp.swift; sourceTree = "<group>"; };
 		4189A2102DAD1A6400CA27CB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				4189A2222DAD1CD500CA27CB /* SeatManager.swift */,
 				4189A2202DAD1CB500CA27CB /* Seat.swift */,
 				4189A2122DAD1A6500CA27CB /* Assets.xcassets */,
+				41864D222DB0BBB2005A8E9A /* anime_heart.json */,
 				412842F72DAF6D740081DD0A /* firework.json */,
 				4189A2142DAD1A6500CA27CB /* Preview Content */,
 			);
@@ -172,6 +175,7 @@
 				4189A21D2DAD1A8E00CA27CB /* members.json in Resources */,
 				412842F82DAF6D740081DD0A /* firework.json in Resources */,
 				4189A2162DAD1A6500CA27CB /* Preview Assets.xcassets in Resources */,
+				41864D232DB0BBB2005A8E9A /* anime_heart.json in Resources */,
 				4189A2132DAD1A6500CA27CB /* Assets.xcassets in Resources */,
 				419ED5B52DAFA01C002A2F69 /* sample_members.json in Resources */,
 			);

@@ -32,7 +32,7 @@ class SeatManager: ObservableObject {
 
     func loadMembers() {
         // バンドルから JSON 読み込み
-        if let url = Bundle.main.url(forResource: "sample_members", withExtension: "json") {
+        if let url = Bundle.main.url(forResource: "members", withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
                 let decoded = try JSONDecoder().decode([Member].self, from: data)
