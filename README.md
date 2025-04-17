@@ -8,7 +8,6 @@
 
 <img src="Images/img_20250417.png" alt="img" width="300">
 
-
 ---
 
 ## アプリ画面
