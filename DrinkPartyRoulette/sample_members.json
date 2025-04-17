@@ -1,0 +1,13 @@
+[
+    { "id": 1, "name": "佐藤", "department": "製造" },
+    { "id": 2, "name": "山本", "department": "製造" },
+    { "id": 3, "name": "田中", "department": "製造" },
+    { "id": 4, "name": "鈴木", "department": "製造" },
+    { "id": 5, "name": "渡邉", "department": "営業" },
+    { "id": 6, "name": "斉藤", "department": "営業" },
+    { "id": 7, "name": "本田", "department": "営業" },
+    { "id": 8, "name": "川北", "department": "総務" },
+    { "id": 9, "name": "北村", "department": "総務" },
+    { "id": 10, "name": "大塚", "department": "総務" },
+    { "id": 11, "name": "村田", "department": "総務" }
+]
