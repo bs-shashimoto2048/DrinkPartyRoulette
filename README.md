@@ -4,7 +4,7 @@
 
 [▶️ 動画を見る](videos/sample.mp4)
 
-アイコン
+- アイコン
 
 <img src="Images/icon_20250421.png" alt="img" width="300">
 
