@@ -13,12 +13,15 @@
 
 import Foundation
 import SwiftUI
-
 class SeatManager: ObservableObject {
     @Published var seats: [Seat] = []
     @Published var members: [Member] = []
     @Published var selectedDepartment: String = ""
     @Published var selectedMember: Member?
+
+    // VIPとVIP席の設定（VIPのID, VIP専用座席ID）
+    private let vipIDs: [Int] = [1, 2, 32] // ←VIP の id 番号を設定
+    private let vipSeatIDs: [Int] = [1, 7, 13] // テーブル1〜3にVIP席を1つずつ設定
 
     init() {
         loadMembers()
@@ -26,12 +29,11 @@ class SeatManager: ObservableObject {
     }
 
     func setupSeats() {
-        // 5列 x 8行の座席を作成（最初は空席）
-        seats = (1...40).map { Seat(id: $0, member: nil) }
+        // 6席×5テーブル = 30席
+        seats = (1...30).map { Seat(id: $0, member: nil) }
     }
 
     func loadMembers() {
-        // バンドルから JSON 読み込み
         if let url = Bundle.main.url(forResource: "members", withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
@@ -44,7 +46,6 @@ class SeatManager: ObservableObject {
     }
 
     var departments: [String] {
-        // 登録されている部署名をユニークに抽出
         Array(Set(members.map { $0.department })).sorted()
     }
 
@@ -62,13 +63,27 @@ class SeatManager: ObservableObject {
     }
 
     func assignRandomSeat(to member: Member) {
-        // 空いてる席をランダムに1つ選んで割り当てる
-        let availableSeats = seats.filter { $0.member == nil }
-        guard let randomSeat = availableSeats.randomElement() else { return }
+        // VIPメンバーかどうかを判定
+        let isVIP = vipIDs.contains(member.id)
 
-        if let index = seats.firstIndex(where: { $0.id == randomSeat.id }) {
+        if isVIP {
+            // 空いてるVIP席を取得
+            let availableVIPSeats = seats.filter { vipSeatIDs.contains($0.id) && $0.member == nil }
+
+            // 空いてるVIP席があればランダムで割り当て
+            if let vipSeat = availableVIPSeats.randomElement(),
+               let index = seats.firstIndex(where: { $0.id == vipSeat.id }) {
+                seats[index].member = member
+                return
+            }
+        }
+
+        // 通常の空席からランダムで割り当て
+        let availableSeats = seats.filter { $0.member == nil && !vipSeatIDs.contains($0.id) }
+
+        if let randomSeat = availableSeats.randomElement(),
+           let index = seats.firstIndex(where: { $0.id == randomSeat.id }) {
             seats[index].member = member
         }
     }
 }
-

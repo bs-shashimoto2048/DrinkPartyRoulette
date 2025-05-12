@@ -137,7 +137,7 @@ struct ContentView: View {
                         .padding(.top)
 
                     // 座席表を5列のグリッドで表示（列数や間隔は変更可能）
-                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 5), spacing: 8) {
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 6), spacing: 8) {
                         // 各座席に対して繰り返し表示
                         ForEach(manager.seats) { seat in
                             VStack(spacing: 4) {
