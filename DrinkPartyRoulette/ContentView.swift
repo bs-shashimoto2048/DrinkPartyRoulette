@@ -54,12 +54,47 @@ struct ContentView: View {
                     }
                 }
 
-                // MARK: - タイトル追加
+                // MARK: - タイトル
                 Text("2025年 管理部 & 経営企画室 歓迎会")
                     .font(.title2)
                     .fontWeight(.bold)
                     .foregroundColor(.primary)
                     .padding(.top)
+
+                // MARK: - アイコンとセリフ
+                HStack(alignment: .top, spacing: 10) {
+
+                    // セリフ
+                    Text(showLottie ? "なにが出るべしかな〜？" : {
+                        if let selectedMember = manager.selectedMember {
+                            // 特定のメンバーIDの場合にセリフを変更
+                            if selectedMember.id == 1 { // 例: IDが1のメンバーが選ばれた場合
+                                return "社長どの！\nお疲れ様ですべし！\nクジを引いて下さいべし！"
+                            } else if selectedMember.id == 2 { // IDが2のメンバーが選ばれた場合
+                                return "これはこれは専務どの！\nお疲れ様ですべし！\nクジを引いて下さいべし！"
+                            } else if selectedMember.id == 33 { // IDが3のメンバーが選ばれた場合
+                                return "おっ、あっくんだべしw\nおつべしw\nクジを引くべしよ〜！"
+                            } else if selectedMember.id == 4 { // IDが4のメンバーが選ばれた場合
+                                return "ボクの作者様だべし！\nいつもお仕事お疲れ様べし！\nさぁクジを引くべしよ〜！"
+                            }
+                        }
+                        return "お疲れ様べし。\n自分の部署と名前を選んで\nクジを引くべしよ〜！"
+                    }())
+                    .font(.body)
+                    .foregroundColor(.primary)
+                    .lineSpacing(5)  // 行間を少し広げて読みやすく
+                    .multilineTextAlignment(.leading) // テキストを左揃え
+                    .fixedSize(horizontal: false, vertical: true) // テキストが長くても折り返す
+                    .padding(.top, 10) // アイコンとセリフの間に少しスペースを追加
+
+                    // アイコン画像
+                    if let url = Bundle.main.url(forResource: "bs", withExtension: "png"),
+                       let uiImage = UIImage(contentsOfFile: url.path) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                    }
+                }
 
                 if !showLottie {
                     HStack(){
@@ -69,7 +104,7 @@ struct ContentView: View {
                                 Text(dept)
                                     .font(pickerFont)
                                     .bold()
-                                    .foregroundColor(pickerTextColor)
+                                    .foregroundColor(.black) // -> Default: pickerTextColor
                                     .tag(dept)
                             }
                         }
@@ -77,7 +112,7 @@ struct ContentView: View {
                             manager.selectedMember = nil
                         }
                         .pickerStyle(MenuPickerStyle())
-                        .frame(width: pickerWidth, height: pickerHeight)
+                        .frame(width: pickerWidth - 10, height: pickerHeight)
                         .padding()
                         .background(manager.selectedDepartment.isEmpty ? Color.gray.opacity(0.9) : Color.green.opacity(0.9)) // 状態に応じた背景色
                         .cornerRadius(pickerCornerRadius)
@@ -89,89 +124,95 @@ struct ContentView: View {
                                     Text(member.name)
                                         .font(pickerFont)
                                         .bold()
-                                        .foregroundColor(pickerTextColor)
+                                        .foregroundColor(.black) // -> Default: pickerTextColor
                                         .tag(member as Member?)
                                 }
                             }
                             .pickerStyle(MenuPickerStyle())
-                            .frame(width: pickerWidth, height: pickerHeight)
+                            .frame(width: pickerWidth - 10, height: pickerHeight)
                             .padding()
                             .background(manager.selectedMember == nil ? Color.gray.opacity(0.9) : Color.green.opacity(0.9)) // 状態に応じた背景色
                             .cornerRadius(pickerCornerRadius)
                         }
-                    }
 
-                    // MARK: - くじ引きボタン
-                    Button(action: {
-                        if let member = manager.selectedMember {
-                            // 座席割り当て
-                            manager.assignRandomSeat(to: member)
-                            manager.selectedMember = nil
+                        // MARK: - くじ引きボタン
+                        Button(action: {
+                            if let member = manager.selectedMember {
+                                // 座席割り当て
+                                manager.assignRandomSeat(to: member)
+                                manager.selectedMember = nil
 
-                            // アニメーション表示
-                            showLottie = true
+                                // アニメーション表示
+                                showLottie = true
 
-                            // 前回のくじ引きの赤をリセットして新しい人を保存
-                            lastAssignedMemberID = member.id
+                                // 前回のくじ引きの赤をリセットして新しい人を保存
+                                lastAssignedMemberID = member.id
 
-                            // アニメ終了: (deadline: .now() + *.*) -> *.* で秒数指定
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                                showLottie = false
+                                // アニメ終了: (deadline: .now() + *.*) -> *.* で秒数指定
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                                    showLottie = false
+                                }
                             }
+                        }) {
+                            Text("🎯くじを引く")
+                                .font(.title3)
+                                .bold()
+                                .frame(width: 120, height: 50)
+                                .background(manager.selectedMember != nil ? Color.green : Color.gray)
+                                .foregroundColor(.blue)
+                                .cornerRadius(10)
                         }
-                    }) {
-                        Text("🎯 くじを引く")
-                            .font(.title2)
-                            .bold()
-                            .frame(width: 160, height: 60)
-                            .background(manager.selectedMember != nil ? Color.green : Color.gray)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
+                        .disabled(manager.selectedMember == nil)
                     }
-                    .disabled(manager.selectedMember == nil)
 
-                    // MARK: - 座席表
+                    // MARK: - ラベル：座席表
                     Text("座席表")
                         .font(.title2)
                         .bold()
                         .padding(.top)
 
-                    // 座席表を5列のグリッドで表示（列数や間隔は変更可能）
+                    // MARK: - 座席表を表示：5列のグリッド（列数や間隔は変更可能）
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 6), spacing: 8) {
                         // 各座席に対して繰り返し表示
                         ForEach(manager.seats) { seat in
+                            let bgColor: Color = {
+                                if seat.member?.id == lastAssignedMemberID && lastAssignedMemberID != nil {
+                                    return Color.red.opacity(0.9)
+                                } else if let member = seat.member, manager.vipIDs.contains(member.id) {
+                                    return Color(hue: 210/360, saturation: 0.6, brightness: 0.85) // VIPメンバーが着席中
+                                } else if seat.member == nil && manager.vipSeatIDs.contains(seat.id) {
+                                    return Color(hue: 210/360, saturation: 0.4, brightness: 0.95) // ★ 空席のVIP座席 → 薄い青
+                                } else if seat.member == nil {
+                                    return Color.white
+                                } else {
+                                    return Color.green.opacity(0.8)
+                                }
+                            }()
+
+
                             VStack(spacing: 4) {
-                                // 座席番号表示
                                 Text("No.\(seat.id)")
                                     .font(.caption)
                                     .foregroundColor(.secondary)
 
-                                // メンバーが割り当てられている場合、その情報を表示
                                 if let member = seat.member {
                                     Text("\(member.department) / \(member.name)")
                                         .font(.caption2)
                                         .multilineTextAlignment(.center)
-                                        .lineLimit(2) // 名前が長くても2行までに制限
+                                        .lineLimit(2)
                                 } else {
-                                    // 空席の場合の表示
                                     Text("空席")
                                         .font(.caption2)
                                         .foregroundColor(.secondary)
                                 }
                             }
-                            // 座席1つ分のサイズ設定（必要に応じて調整可能）
                             .frame(width: 56, height: 30)
                             .padding(6)
-                            // メンバーがいるかどうかで背景色を変更（空席＝白、割り当て済み＝緑）
-                            .background(
-                                (seat.member?.id == lastAssignedMemberID && lastAssignedMemberID != nil)
-                                ? Color.red.opacity(0.9)
-                                : (seat.member == nil ? Color.white : Color.green.opacity(0.8))
-                            )
+                            .background(bgColor)
                             .cornerRadius(8)
-                            // 枠線（グレー）を追加して見やすくする
                             .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray.opacity(0.4)))
                         }
+
                     }
                 }
                 Spacer()

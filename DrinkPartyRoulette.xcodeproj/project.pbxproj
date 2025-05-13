@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		412842F52DAF666B0081DD0A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 412842F42DAF666B0081DD0A /* Lottie */; };
 		412842F82DAF6D740081DD0A /* firework.json in Resources */ = {isa = PBXBuildFile; fileRef = 412842F72DAF6D740081DD0A /* firework.json */; };
+		4147AF9E2DD3451600D653A8 /* bs.png in Resources */ = {isa = PBXBuildFile; fileRef = 4147AF9D2DD3451600D653A8 /* bs.png */; };
 		41864D1F2DB0B49C005A8E9A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 41864D1E2DB0B49C005A8E9A /* README.md */; };
 		41864D212DB0B4C3005A8E9A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 41864D202DB0B4C3005A8E9A /* .gitignore */; };
 		41864D232DB0BBB2005A8E9A /* anime_heart.json in Resources */ = {isa = PBXBuildFile; fileRef = 41864D222DB0BBB2005A8E9A /* anime_heart.json */; };
@@ -25,7 +26,7 @@
 
 /* Begin PBXFileReference section */
 		412842F72DAF6D740081DD0A /* firework.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = firework.json; sourceTree = "<group>"; };
-		412842F92DAF703E0081DD0A /* firework copy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "firework copy.json"; sourceTree = "<group>"; };
+		4147AF9D2DD3451600D653A8 /* bs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bs.png; sourceTree = "<group>"; };
 		41864D1E2DB0B49C005A8E9A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		41864D202DB0B4C3005A8E9A /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		41864D222DB0BBB2005A8E9A /* anime_heart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anime_heart.json; sourceTree = "<group>"; };
@@ -53,14 +54,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		412842F62DAF6D600081DD0A /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				412842F92DAF703E0081DD0A /* firework copy.json */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		4189A2022DAD1A6400CA27CB = {
 			isa = PBXGroup;
 			children = (
@@ -82,10 +75,10 @@
 		4189A20D2DAD1A6400CA27CB /* DrinkPartyRoulette */ = {
 			isa = PBXGroup;
 			children = (
-				412842F62DAF6D600081DD0A /* Resources */,
 				4189A20E2DAD1A6400CA27CB /* DrinkPartyRouletteApp.swift */,
 				4189A2102DAD1A6400CA27CB /* ContentView.swift */,
 				4189A21C2DAD1A8E00CA27CB /* members.json */,
+				4147AF9D2DD3451600D653A8 /* bs.png */,
 				419ED5B42DAFA01C002A2F69 /* sample_members.json */,
 				4189A21E2DAD1ABF00CA27CB /* Member.swift */,
 				4189A2222DAD1CD500CA27CB /* SeatManager.swift */,
@@ -137,7 +130,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					4189A20A2DAD1A6400CA27CB = {
 						CreatedOnToolsVersion = 15.4;
@@ -178,6 +171,7 @@
 				41864D232DB0BBB2005A8E9A /* anime_heart.json in Resources */,
 				4189A2132DAD1A6500CA27CB /* Assets.xcassets in Resources */,
 				419ED5B52DAFA01C002A2F69 /* sample_members.json in Resources */,
+				4147AF9E2DD3451600D653A8 /* bs.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +228,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = HZ43AT7U4F;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -297,6 +292,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = HZ43AT7U4F;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -326,7 +322,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DrinkPartyRoulette/Preview Content\"";
-				DEVELOPMENT_TEAM = HZ43AT7U4F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -355,7 +350,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DrinkPartyRoulette/Preview Content\"";
-				DEVELOPMENT_TEAM = HZ43AT7U4F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
