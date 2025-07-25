@@ -20,10 +20,10 @@ struct ContentView: View {
     @State private var lastAssignedMemberID: Int? = nil
 
     // MARK: - ピッカー用のカスタマイズパラメータ
-    let pickerWidth: CGFloat = 80                 // ピッカーの幅
-    let pickerHeight: CGFloat = 20                 // ピッカーの高さ
+    let pickerWidth: CGFloat = 80*2                 // ピッカーの幅:80
+    let pickerHeight: CGFloat = 20*2                 // ピッカーの高さ:20
     let pickerBackgroundColor: Color = .gray.opacity(0.7) // 背景色
-    let pickerCornerRadius: CGFloat = 8            // 角丸
+    let pickerCornerRadius: CGFloat = 8*2            // 角丸
     let pickerFont: Font = .title               // 文字サイズ
     let pickerTextColor: Color = .white             // 文字色
 
@@ -72,7 +72,7 @@ struct ContentView: View {
                                 return "社長どの！\nお疲れ様ですべし！\nクジを引いて下さいべし！"
                             } else if selectedMember.id == 2 { // IDが2のメンバーが選ばれた場合
                                 return "これはこれは専務どの！\nお疲れ様ですべし！\nクジを引いて下さいべし！"
-                            } else if selectedMember.id == 33 { // IDが3のメンバーが選ばれた場合
+                            } else if selectedMember.id == 32 { // IDが3のメンバーが選ばれた場合
                                 return "おっ、あっくんだべしw\nおつべしw\nクジを引くべしよ〜！"
                             } else if selectedMember.id == 4 { // IDが4のメンバーが選ばれた場合
                                 return "ボクの作者様だべし！\nいつもお仕事お疲れ様べし！\nさぁクジを引くべしよ〜！"
@@ -87,12 +87,12 @@ struct ContentView: View {
                     .fixedSize(horizontal: false, vertical: true) // テキストが長くても折り返す
                     .padding(.top, 10) // アイコンとセリフの間に少しスペースを追加
 
-                    // アイコン画像
-                    if let url = Bundle.main.url(forResource: "bs", withExtension: "png"),
+                    // アイコン画像 -> forResource(ファイル名) bs:通常ver, bs_1:飲酒ver
+                    if let url = Bundle.main.url(forResource: "bs_1", withExtension: "png"),
                        let uiImage = UIImage(contentsOfFile: url.path) {
                         Image(uiImage: uiImage)
                             .resizable()
-                            .frame(width: 100, height: 100)
+                            .frame(width: 150, height: 150) //(width: 100, height: 100)
                     }
                 }
 
@@ -157,7 +157,7 @@ struct ContentView: View {
                             Text("🎯くじを引く")
                                 .font(.title3)
                                 .bold()
-                                .frame(width: 120, height: 50)
+                                .frame(width: 100*2, height: 40*2) // (width: 120, height: 50*2)
                                 .background(manager.selectedMember != nil ? Color.green : Color.gray)
                                 .foregroundColor(.blue)
                                 .cornerRadius(10)
@@ -172,7 +172,7 @@ struct ContentView: View {
                         .padding(.top)
 
                     // MARK: - 座席表を表示：5列のグリッド（列数や間隔は変更可能）
-                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 6), spacing: 8) {
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 8) {
                         // 各座席に対して繰り返し表示
                         ForEach(manager.seats) { seat in
                             let bgColor: Color = {
@@ -191,13 +191,14 @@ struct ContentView: View {
 
 
                             VStack(spacing: 4) {
+                                // 座席ナンバー
                                 Text("No.\(seat.id)")
-                                    .font(.caption)
+                                    .font(.headline) //.caption
                                     .foregroundColor(.secondary)
-
+                                // 指名
                                 if let member = seat.member {
                                     Text("\(member.department) / \(member.name)")
-                                        .font(.caption2)
+                                        .font(.title2) //.caption2
                                         .multilineTextAlignment(.center)
                                         .lineLimit(2)
                                 } else {
@@ -206,11 +207,11 @@ struct ContentView: View {
                                         .foregroundColor(.secondary)
                                 }
                             }
-                            .frame(width: 56, height: 30)
-                            .padding(6)
-                            .background(bgColor)
-                            .cornerRadius(8)
-                            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray.opacity(0.4)))
+                            .frame(width: 56*2, height: 40) //幅 56pt、高さ 30pt
+                            .padding(6*2) //周囲に6ptの余白
+                            .background(bgColor) //ビューの背景色を bgColor で指定
+                            .cornerRadius(8*2) //ビューの 角を8ptの半径で丸める
+                            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray.opacity(0.4))) //
                         }
 
                     }

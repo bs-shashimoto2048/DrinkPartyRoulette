@@ -20,10 +20,10 @@ class SeatManager: ObservableObject {
     @Published var selectedDepartment: String = ""
     @Published var selectedMember: Member?
 
-    // VIPメンバーIDの一覧
-    let vipIDs: [Int] = [1, 2, 33]
+    // VIPメンバーIDの一覧(社長、専務、室長、MG、SM)
+    let vipIDs: [Int] = [1, 2, 3, 12, 13, 18,19, 32]
     // VIP席IDの一覧（テーブルごとに1つずつ）
-    let vipSeatIDs: [Int] = [1, 7, 13]
+    let vipSeatIDs: [Int] = [1, 5, 9, 13, 17, 21]
 
     init() {
         loadMembers()
@@ -31,8 +31,8 @@ class SeatManager: ObservableObject {
     }
 
     func setupSeats() {
-        // 6席×5テーブル = 30席
-        seats = (1...30).map { Seat(id: $0, member: nil) }
+        // 4席×6テーブル = 24席
+        seats = (1...24).map { Seat(id: $0, member: nil) }
     }
 
     func loadMembers() {

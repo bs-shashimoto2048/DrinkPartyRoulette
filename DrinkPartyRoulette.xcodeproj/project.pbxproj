@@ -10,6 +10,7 @@
 		412842F52DAF666B0081DD0A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 412842F42DAF666B0081DD0A /* Lottie */; };
 		412842F82DAF6D740081DD0A /* firework.json in Resources */ = {isa = PBXBuildFile; fileRef = 412842F72DAF6D740081DD0A /* firework.json */; };
 		4147AF9E2DD3451600D653A8 /* bs.png in Resources */ = {isa = PBXBuildFile; fileRef = 4147AF9D2DD3451600D653A8 /* bs.png */; };
+		4147AFA22DD4349400D653A8 /* bs_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4147AFA12DD4349400D653A8 /* bs_1.png */; };
 		41864D1F2DB0B49C005A8E9A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 41864D1E2DB0B49C005A8E9A /* README.md */; };
 		41864D212DB0B4C3005A8E9A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 41864D202DB0B4C3005A8E9A /* .gitignore */; };
 		41864D232DB0BBB2005A8E9A /* anime_heart.json in Resources */ = {isa = PBXBuildFile; fileRef = 41864D222DB0BBB2005A8E9A /* anime_heart.json */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		412842F72DAF6D740081DD0A /* firework.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = firework.json; sourceTree = "<group>"; };
 		4147AF9D2DD3451600D653A8 /* bs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bs.png; sourceTree = "<group>"; };
+		4147AFA12DD4349400D653A8 /* bs_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bs_1.png; sourceTree = "<group>"; };
 		41864D1E2DB0B49C005A8E9A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		41864D202DB0B4C3005A8E9A /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		41864D222DB0BBB2005A8E9A /* anime_heart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anime_heart.json; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				4189A2222DAD1CD500CA27CB /* SeatManager.swift */,
 				4189A2202DAD1CB500CA27CB /* Seat.swift */,
 				4189A2122DAD1A6500CA27CB /* Assets.xcassets */,
+				4147AFA12DD4349400D653A8 /* bs_1.png */,
 				41864D222DB0BBB2005A8E9A /* anime_heart.json */,
 				412842F72DAF6D740081DD0A /* firework.json */,
 				4189A2142DAD1A6500CA27CB /* Preview Content */,
@@ -169,6 +172,7 @@
 				412842F82DAF6D740081DD0A /* firework.json in Resources */,
 				4189A2162DAD1A6500CA27CB /* Preview Assets.xcassets in Resources */,
 				41864D232DB0BBB2005A8E9A /* anime_heart.json in Resources */,
+				4147AFA22DD4349400D653A8 /* bs_1.png in Resources */,
 				4189A2132DAD1A6500CA27CB /* Assets.xcassets in Resources */,
 				419ED5B52DAFA01C002A2F69 /* sample_members.json in Resources */,
 				4147AF9E2DD3451600D653A8 /* bs.png in Resources */,
