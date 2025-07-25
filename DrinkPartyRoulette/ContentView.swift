@@ -1,12 +1,13 @@
 // ProjectName: DrinkPartyRoulette
 // Script Name: ContentView.swift
-//  Created by 橋本諭 on 2025/04/16.
+//  Created by 橋本諭 on 2025/07/25.
 ///　アニメーションのJSOnファイルは  https://lottiefiles.com/ にて入手
 
 // MARK: - 部署選択〜くじ引き、座席(グリッド)画面
 /// - LazyVGrid を使って 座席表を作成
 /// - ボタンを押すたびに、選ばれた人がランダムな空席に入ります
 /// - 割り当てられた席は 緑色、空席は 白 に表示
+/// - 一部、アイコンなどの引数をiPad用へ変更、元の値はコメントアウトを参照
 
 import SwiftUI
 import Lottie // Package のインストールが必要

@@ -1,6 +1,6 @@
 // ProjectName: DrinkPartyRoulette
 // Script Name: SeatManager.swift
-//  Created by 橋本諭 on 2025/04/15.
+//  Created by 橋本諭 on 2025/07/25.
 
 // MARK: 座席の空き状況や、JSONからの名簿読み込みなどを扱う 状態管理クラス(ViewModel)
 // - @Published: SwiftUIに変更通知を伝えるプロパティ
@@ -9,12 +9,14 @@
 // - assignRandomSeat(to:): 空いてる席から1つを選び、指定した人を割り当てる
 // - departments: 部署一覧を取得
 // - membersInSelectedDepartment: 選んだ部署の未割当メンバーの一覧
+// - VIP席を２列へ修正(１列目：役職者、２列目：歓迎者)
 
 
 import Foundation
 import SwiftUI
 
 
+/// VIP 2列バージョン
 class SeatManager: ObservableObject {
     @Published var seats: [Seat] = []
     @Published var members: [Member] = []
@@ -110,6 +112,7 @@ class SeatManager: ObservableObject {
     }
 }
 
+/// VIP 1列バージョン
 //class SeatManager: ObservableObject {
 //    @Published var seats: [Seat] = []
 //    @Published var members: [Member] = []
